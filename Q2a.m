@@ -21,20 +21,25 @@ std_all = std(echantillons);
 std_beer = std_all(1);
 std_spirit = std_all(2);
 
-
-boxplot(echantillons(:,1));
-axis auto;
-title("Consommation de bie  re au monde d'un echantillon de 20");
 figure
-axis auto;
+boxplot(echantillons(:,1));
+title("Consommation de biere au monde d'un echantillon de 20");
+
+
+figure
 boxplot(echantillons(:,2));
 title("Consommation de spiritueux au monde d'un echantillon de 20");
 
 
 
+figure
 cdfplot(echantillons(:,1));
 title("Frequence cumulee de la consommation de biere au monde d'un echantillon de 20");
+
 figure
 cdfplot(echantillons(:,2));
 title("Frequence cumulee de la consommation de spiritueux au monde d'un echantillon de 20");
+
+KS_beer = kstest(echantillons(:,1))
+KS_spirit = kstest(echantillons(:,2))
 
