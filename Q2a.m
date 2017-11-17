@@ -1,45 +1,48 @@
 importData;
 
-% On prend 20 echantillons au hasard
+
+% On prend 1 echantillon de 20 pays au hasard
 index_echantillon = randsample(100,20,false);
-echantillons = zeros(20,4);
+echantillon = zeros(20,4);
 for i = 1:20
-    echantillons(i,1:4) = dataset(index_echantillon(i),:);
+    echantillon(i,1:4) = dataset(index_echantillon(i),:);
 end
 
+beer_data = echantillon(:,1);
+spirit_data = echantillon(:,2);
 % Calcul de la mediane pour la consommation de biere et d'alcool fort
-median_beer = median(echantillons(:,1));
-median_spirit = median(echantillons(:,2));
+median_beer = median(beer_data);
+median_spirit = median(spirit_data);
 
 % Calcul de la moyenne pour la consommation de biere et d'alcool fort
 
-mean_beer = mean(echantillons(:,1))
-mean_spirit = mean(echantillons(:,2))
+mean_beer = mean(beer_data)
+mean_spirit = mean(spirit_data)
 
 % Calcul de l'ecart-type pour la consommation de biere et d'alcool fort
-std_all = std(echantillons);
-std_beer = std_all(1);
-std_spirit = std_all(2);
+
+std_beer = std(beer_data);
+std_spirit = std(spirit_data);
 
 figure
-boxplot(echantillons(:,1));
+boxplot(beer_data);
 title("Consommation de biere au monde d'un echantillon de 20");
 
 
 figure
-boxplot(echantillons(:,2));
+boxplot(spirit_data);
 title("Consommation de spiritueux au monde d'un echantillon de 20");
 
 
 
 figure
-cdfplot(echantillons(:,1));
+cdfplot(beer_data);
 title("Frequence cumulee de la consommation de biere au monde d'un echantillon de 20");
 
 figure
-cdfplot(echantillons(:,2));
+cdfplot(spirit_data);
 title("Frequence cumulee de la consommation de spiritueux au monde d'un echantillon de 20");
 
-KS_beer = kstest(echantillons(:,1))
-KS_spirit = kstest(echantillons(:,2))
+%[~,~,KS_beer] = kstest2(beer_data,population)
+%[~,~,KS_spirit] = kstest2(spirit_data,population)
 
