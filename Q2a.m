@@ -33,16 +33,24 @@ figure
 boxplot(spirit_data);
 title("Consommation de spiritueux au monde d'un echantillon de 20");
 
-
-
-figure
-cdfplot(beer_data);
+pop = cdfplot(dataset(:,1));
+hold on;
+set(pop,'color','r');
+ech = cdfplot(beer_data);
+set(ech,'color','b');
 title("Frequence cumulee de la consommation de biere au monde d'un echantillon de 20");
+hold off;
+
+
 
 figure
-cdfplot(spirit_data);
+pop = cdfplot(dataset(:,2));
+hold on;
+set(pop,'color','r');
+ech = cdfplot(spirit_data);
+set(ech,'color','b');
 title("Frequence cumulee de la consommation de spiritueux au monde d'un echantillon de 20");
 
-%[~,~,KS_beer] = kstest2(beer_data,population)
-%[~,~,KS_spirit] = kstest2(spirit_data,population)
+[~,~,KS_beer] = kstest2(beer_data,(dataset(:,1)))
+[~,~,KS_spirit] = kstest2(spirit_data,(dataset(:,2)))
 

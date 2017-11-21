@@ -45,15 +45,15 @@ for j = 1:100
     std_beer_100(j) = std(beer_data);
     std_spirit_100(j) = std(spirit_data);
     
-    %[~,~,KS_beer] = kstest2(beer_data,population)
-    %KS_beer_100(j) = KS_beer;
-    %[~,~,KS_spirit] = kstest2(spirit_data,population)
-    %KS_spirit_100(j) = KS_spirit;
+    [~,~,KS_beer] = kstest2(beer_data,(dataset(:,1)));
+    KS_beer_100(j) = KS_beer
+    [~,~,KS_spirit] = kstest2(spirit_data,(dataset(:,2)));
+    KS_spirit_100(j) = KS_spirit
     
-    %[~,~,KS_wine] = kstest2(wine_data,population)
-    %KS_wine_100(j) = KS_wine;
-    %[~,~,KS_pure] = kstest2(pure_data,population)
-    %KS_pure_100(j) = KS_pure;
+    [~,~,KS_wine] = kstest2(wine_data,(dataset(:,3)));
+    KS_wine_100(j) = KS_wine
+    [~,~,KS_pure] = kstest2(pure_data,(dataset(:,4)));
+    KS_pure_100(j) = KS_pure
 
 
 end
@@ -107,25 +107,25 @@ mean_std_spirit = mean(std_spirit_100);
 
 
 figure
-histogram(KS_beer, 21)
+histogram(KS_beer_100, 21)
 title('Histogramme des distances de Kolmogrorov pour la bière')
 ylabel('Nombre d echantillons')
 xlabel('Distance de Kolomogorov')
 
 figure
-histogram(KS_spirit, 21)
+histogram(KS_spirit_100, 21)
 title('Histogramme des distances de Kolmogrorov pour les spiritueux')
 ylabel('Nombre d echantillons')
 xlabel('Distance de Kolomogorov')
 
 figure
-histogram(KS_wine, 21)
+histogram(KS_wine_100, 21)
 title('Histogramme des distances de Kolmogrorov pour le vin')
 ylabel('Nombre d echantillons')
 xlabel('Distance de Kolomogorov')
 
 figure
-histogram(KS_pure, 21)
+histogram(KS_pure_100, 21)
 title('Histogramme des distances de Kolmogrorov pour l alcool pur')
 ylabel('Nombre d echantillons')
 xlabel('Distance de Kolomogorov')
