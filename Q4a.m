@@ -12,11 +12,11 @@ for(k = 1:6)
             echantillons(i,1,j,k) = dataset(index_echantillon(i-1),1);
         end
         
-        proportion = 0.95;
+        proportion = 0.05;
         n = 20;
         ecart_type = sqrt(proportion*(1-proportion)/n);
         z=1.96;
-        borne_inf = proportion+(z*ecart_type);        
+        borne_inf = proportion+(z*ecart_type)      
        
         
         if(echantillons(i,1,j,k) > beerBelgium) 
@@ -30,5 +30,5 @@ for(k = 1:6)
         
     end
 end
-propNbAboveBelgium(:,1)
+propNbAboveBelgium(:,1);
 nb = length(find(nbAboveBelgium(:,1) > 0));
