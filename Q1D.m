@@ -10,7 +10,7 @@ boxplot(data(:,2));
 title('Boxplot des consommation d alcool fort');
 
 % Calcul des quartiles
-quartile_beer = quantile(data(:,1), [0.25 0.50 0.75]);
+quartile_beer = quantile(data(:,1), [0.25 0.50 0.75])
 quartile_spirit = quantile(data(:,2), [0.25 0.50 0.75]);
 
 end

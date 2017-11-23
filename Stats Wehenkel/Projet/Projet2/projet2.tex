@@ -1,0 +1,186 @@
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage{vmargin}
+
+\setmarginsrb{2cm}{1cm}{2cm}{1cm}{1cm}{2cm}{1cm}{2cm}
+%1 est la marge gauche
+%2 est la marge en haut
+%3 est la marge droite
+%4 est la marge en bas
+%5 fixe la hauteur de l'entête
+%6 fixe la distance entre l'entête et le texte
+%7 fixe la hauteur du pied de page
+%8 fixe la distance entre le texte et le pied de page
+%------------------------------Packages généraux------------------------------
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{ae}
+\usepackage[utf8]{inputenc}
+
+%------------------------------Mathématiques------------------------------
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{eucal}
+
+
+%------------------------------Graphics------------------------------
+
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\usepackage{color}
+\usepackage{epstopdf}
+\usepackage{float}
+\usepackage{slashbox}
+%------------------------------Syntaxe------------------------------
+
+\usepackage{listings}
+\lstloadlanguages{Matlab}
+
+\def\refmark#1{\hbox{$^{\ref{#1}}$}}
+\DeclareSymbolFont{cmmathcal}{OMS}{cmsy}{m}{n} %Mathcal correcte
+\DeclareSymbolFontAlphabet{\mathcal}{cmmathcal}
+\renewcommand\thesubsection{\alph{subsection}}
+
+
+%------------------------------Inclure code MatLab------------------------------
+
+\usepackage{listings}
+\newcommand*\styleC{\fontsize{9}{10pt}\usefont{T1}{ptm}{m}{n}\selectfont }
+\newcommand*\styleD{\fontsize{9}{10pt}\usefont{OT1}{pag}{m}{n}\selectfont }
+
+\makeatletter
+% on fixe le langage utilisé
+\lstset{language=matlab}
+\edef\Motscle{emph={\lst@keywords}}
+\expandafter\lstset\expandafter{%
+  \Motscle}
+\makeatother
+
+
+\definecolor{Ggris}{rgb}{0.45,0.48,0.45}
+
+\lstset{emphstyle=\rmfamily\color{blue}, % les mots réservés de matlab en bleu
+basicstyle=\styleC,
+keywordstyle=\ttfamily,
+commentstyle=\color{Ggris}\styleD, % commentaire en gris
+numberstyle=\tiny\color{red},
+numbers=left,
+numbersep=10pt,
+lineskip=0.7pt,
+showstringspaces=false}
+%  % inclure le fichier source
+\newcommand{\FSource}[1]{%
+\lstinputlisting[texcl=true]{#1}
+}
+
+\usepackage[section]{placeins}
+
+\let\cleardoublepage\clearpage
+
+%------------------------------Début du document------------------------------
+
+\begin{document}
+%------------------------------Page de garde------------------------------
+
+\begin{titlepage}
+	
+	
+	\begin{tabular}{p{11cm}p{8cm}}    
+		\includegraphics[scale=0.4]{Fig/logo_ulg.png}  &\raggedright{\includegraphics[scale=0.6]{Fig/Logo_FSAnew.png}}\\
+	\end{tabular}
+	
+	\begin{center}
+		\unitlength = 1cm
+		\vspace{0.1cm}
+		\Large\textbf{Faculté des sciences appliquées}\\
+		\vspace{2.5cm}
+		\Large  \bsc{MATH0487-2\\Eléments de statistique\\}
+		\vspace*{2.3cm}
+		\huge
+		\begin{center}
+			Partie 2 du projet personnel
+			\rule{13cm}{0.5mm}
+		\end{center}
+	\end{center}
+	
+	\vspace*{5.5cm}
+	
+	\centering{\large \noindent  \it Antoine \bsc{Wehenkel}}
+	\vspace*{4cm}
+	
+	
+	\begin{tabular}{p{14cm}p{15cm} l r}    
+		Année académique 2015-2016 
+		&\raggedright{\large \noindent \textsl{22 octobre 2015}}
+	\end{tabular}
+\end{titlepage}
+% -------- Fin Page de garde --------
+   \setcounter{page}{1}
+   \section{Estimation}
+   \subsection{}
+   Après calcul des moyennes des 100 échantillons on calcule le biais en faisant la différence de la moyenne des moyennes moins la valeur de la moyenne de la population. On obtient la valeur 0,0406. Pour calculer la variance de l'estimateur on utilise la formule habituel de la variance, on obtient la valeur 0,3319. 
+   \subsection{}
+   En appliquant des méthodes similaires au point précédent(sur les même échantillons) sur les médianes on obtient un biais de -0,0587 et une variance de 0,4358. On voit que comme la théorie le prévoit les biais sont proches(et quasiment nulle) mais la variance de l'estimateur médiane est plus élevée.
+   \subsection{}
+En répétant l'expérience pour des échantillons de 50 étudiants on obtient les résultats suivants:\begin{itemize}
+\item Médiane \begin{itemize}
+	\item biais: -0,0698 
+	\item variance: 0,2264 
+\end{itemize}
+\item Moyenne \begin{itemize}
+	\item biais: -0,0537
+	\item variance: 0,1451
+\end{itemize}
+\end{itemize}
+On observe que les variances ont diminuées et que les biais restent plûtot identiques. En effet cela est logique les échantillons étant plus grands les estimateurs sont en moyenne plus proches de la vraie valeur de la moyenne et sont donc plus proches les uns des autres. On voit ici que la principale différence entre les deux estimateurs est la variance qui est plus faible pour la moyenne(comme la théorie le prévoit).
+\subsection{}
+En utilisant premièrement une loi de student(avec 19 degrés de liberté) pour créer nos intervalles de confiance les intervalles sont donnés par la formule suivante: $m_X - t_{1-\alpha/2}\frac{\sigma}{\sqrt{n}} \leq \mu \leq m_X + t_{1-\alpha/2}\frac{\sigma}{\sqrt{n}}$ Où $n$ vaut 20 et $\alpha$ vaut 5. On obtient 94 intervalles contenant la vraie valeur de la moyenne cela  est proche des 95 attendus par définition de la construction de l'intervalle de confiance. Pour la loi normale on utilise les même intervalles en remplaçant simplement t par le u adéquat. On obtient 91 intervalles contenant la valeur de la population. Ceci est plus éloigné des 95 attendus en effet nous construisons notre intervalle par une loi normale alors que la taille des échantillons est inférieure à 30, dans un cas pareil l'intervalle donné par une loi de student est meilleur. On peut donc conclure que les intervalles sont assez correcte et que donc les notes moyennes suivent une loi normale. De plus si l'on augmente la taille des échantillons les intervalles donnés par la loi normale contiennent 95 fois sur 100 la vraie valeur de la moyenne. Il est donc bien raisonable de supposer la variable parente gaussienne.
+\section{Tests d'hypothèse}
+\subsection{}
+Pour tester l'hypothèse $H_0$ que plus d'un cinquième des étudiants réussissent le cours de statistiques on utilise un intervalle de confiance sur une proportion. Ici on rejete $H_0$ uniquement si le taux d'échec est supérieur à 20\% avec un seuil de signification $\alpha$ qui vaut 5\%. Un institut de sondage considerera donc l'hypothèse $H_0$ à rejeter si et seulement si le taux d'échec est supérieur au seuil donné par la formule suivante: $seuil = f + u_{95}\sqrt{\frac{f(1-f)}{n}}$ où $f$ est le taux d'échec donné par $H_0$ c'est à dire 0,2. On obtient en moyenne que sur 100 échantillons les autorité de l'université rejette $H_0$ environ 9 ou 10 fois. Or nous savons que $H_0$ est vraie et que donc avec un seuil $\alpha$ de 5\% l'université ne devraient se tromper que 5 fois sur 100. Cependant nous utilisons ici un intervalle de confiance qui n'est normalement valable que quand le minimum de $\{nf, n(1-f)\}$ est plus grand que 5 or ici il vaut au minimum 4. Une partie de l'erreur provient donc de celà.
+\subsection{}
+En moyenne dans 51\% des cas il y a eu un article dans la gazette locale en effet nous avons observé à la question précédente que notre test était correct avec une probabilité de 0,91 ici nous faisons 7 tests. La probabilité pour qu'aucun ne se trompe ou qu'il soit tous corrects est donc donnée par $0,91^7 = 0,52$ et donc la probabilité d'avoir au moins un test faux est de $1 - 0,52 = 0,48$ ce qui est très proche de la valeur obtenue. On voit ici tout le problème que pose les tests mutliples on a presque une chance sur deux de dire quelque chose de faux dans la gazette locale.
+\subsection{}
+Premièrement les instituts pourraient utiliser un seuil de signification $\alpha$ plus petit afin d'avoir un risque qu'au moins un des instituts se trompe vale 5\%. Les instituts pourraient également travailler en collaboration sur un même échantillon, étant plus nombreux ils pourraient prendre des échantillons plus grands. En effet pour les instituts la partie prenant du temps n'est pas l'analyse des données qui peut être automatisée mais bien la collecte de ces données.
+
+\newpage
+\appendix
+\section{Q1A}
+\lstset{breaklines=true}
+\lstset{
+   literate={ö}{{\"o}}1
+            {ô}{{\^o}}1
+            {î}{{\^i}}1
+            {ï}{{\"o}}1
+            {ç}{{\,c}}1
+            {à}{{\`a}}1
+            {â}{{\^a}}1
+            {ä}{{\"a}}1
+            {é}{{\'e}}1
+            {è}{{\`e}}1
+            {ê}{{\^e}}1
+            {ë}{{\"e}}1
+            {û}{{\^u}}1
+            {ü}{{\"u}}1
+ }
+\lstinputlisting[language=matlab]{code_utf/Q1Af.m}
+\lstinputlisting[language=matlab]{code_utf/Q1A.m}
+\section{Q1B}
+\lstinputlisting[language=matlab]{code_utf/Q1Bf.m}
+\lstinputlisting[language=matlab]{code_utf/Q1B.m}
+\section{Q1C}
+\lstinputlisting[language=matlab]{code_utf/Q1C.m}
+\section{Q1D}
+\lstinputlisting[language=matlab]{code_utf/Q1D.m}
+\section{Generation de sample}
+\lstinputlisting[language=matlab]{code_utf/generateSample.m}
+\section{Q2A}
+\lstinputlisting[language=matlab]{code_utf/Q2A.m}
+\section{Q2B}
+\lstinputlisting[language=matlab]{code_utf/Q2B.m}
+\end{document}

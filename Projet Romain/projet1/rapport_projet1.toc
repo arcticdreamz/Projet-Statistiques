@@ -1,0 +1,33 @@
+\select@language {french}
+\contentsline {section}{\numberline {1}Analyse descriptive}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Point (a)}{3}{subsection.1.1}
+\contentsline {paragraph}{}{3}{section*.2}
+\contentsline {paragraph}{}{3}{section*.3}
+\contentsline {paragraph}{}{3}{section*.4}
+\contentsline {subsection}{\numberline {1.2}Point (b)}{3}{subsection.1.2}
+\contentsline {paragraph}{}{4}{section*.5}
+\contentsline {paragraph}{}{4}{section*.6}
+\contentsline {subsection}{\numberline {1.3}Point (c)}{4}{subsection.1.3}
+\contentsline {paragraph}{}{4}{section*.7}
+\contentsline {subsection}{\numberline {1.4}Point (d)}{4}{subsection.1.4}
+\contentsline {paragraph}{}{5}{section*.8}
+\contentsline {subsection}{\numberline {1.5}Point (e)}{5}{subsection.1.5}
+\contentsline {section}{\numberline {2}Calcul de statistiques sur \IeC {\'e}chantillons}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}Remarque sur \texttt {datasample}}{5}{subsection.2.1}
+\contentsline {paragraph}{}{6}{section*.9}
+\contentsline {subsection}{\numberline {2.2}Point (a)}{6}{subsection.2.2}
+\contentsline {paragraph}{(i)}{6}{section*.10}
+\contentsline {paragraph}{(ii)}{7}{section*.11}
+\contentsline {paragraph}{(iii)}{7}{section*.12}
+\contentsline {paragraph}{}{7}{section*.13}
+\contentsline {subsection}{\numberline {2.3}Point (b)}{7}{subsection.2.3}
+\contentsline {paragraph}{(i)}{7}{section*.14}
+\contentsline {paragraph}{}{8}{section*.15}
+\contentsline {paragraph}{(ii)}{9}{section*.16}
+\contentsline {paragraph}{}{9}{section*.17}
+\contentsline {paragraph}{(iii)}{9}{section*.18}
+\contentsline {paragraph}{}{9}{section*.19}
+\contentsline {paragraph}{(iv) et (v)}{9}{section*.20}
+\contentsline {paragraph}{}{9}{section*.21}
+\contentsline {section}{\numberline {3}Annexe}{9}{section.3}
+\contentsline {subsection}{\numberline {3.1}Code}{9}{subsection.3.1}
