@@ -142,7 +142,7 @@ title({'Histogramme de la repartition des distances de Kolmogorov-Smirnov';' de 
 ylabel('Nombre de distances de K-S');
 xlabel('Distance de Kolmogorov-Smirnov');
 
-meanOfAll = [mean_median_beer,mean_median_spirit,mean_mean_beer,mean_mean_spirit,mean_std_beer,mean_std_spirit];
+meanOfAll = [mean_median_beer,mean_median_spirit,mean_mean_beer,mean_mean_spirit,mean_std_beer,mean_std_spirit]
 data100Ech = [median_beer_100,median_spirit_100,mean_beer_100,mean_spirit_100,std_beer_100,std_spirit_100];
 DistKS = [KS_beer_100,KS_spirit_100,KS_wine_100,KS_pure_100];
 
