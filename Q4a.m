@@ -1,16 +1,18 @@
-importData;
-beerBelgium = dataset(93,1);
+data = xlsread("Database.xlsx");
+beerBelgium = data(93,1);
 nbAboveBelgium = zeros(100,6);
-rejets = zeros(1,6);
 n = 50;
-for(j = 1:100)
-    for(k = 1:6)
+echantillons = zeros(n,1,100,6);
+rejets = zeros(1,6);
+
+for j = 1:100
+    for k = 1:6
 
         
         index_echantillon = randsample(100,n,false);
         
         for i = 1:n
-            echantillons(i,1,j,k) = dataset(index_echantillon(i),1);
+            echantillons(i,1,j,k) = data(index_echantillon(i),1);
             
             %Pays buvant plus de bieres que la Belgique
             if(echantillons(i,1,j,k) > beerBelgium) 
