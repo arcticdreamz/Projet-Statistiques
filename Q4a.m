@@ -26,7 +26,7 @@ for j = 1:100
         %Calcul de la borne 
         proportion = 0.95;
         ecart_type = sqrt(proportion*(1-proportion)/n);
-        u = 0.82894;
+        u = 1.62;
         borne = proportion - (u*ecart_type);
        
         

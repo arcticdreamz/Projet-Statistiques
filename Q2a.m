@@ -29,13 +29,13 @@ std_spirit = std(spirit_data);
 
 figure;
 boxplot(beer_data);
-title("Consommation de biere au monde d un echantillon de 20");
+title("Consommation de biere d un echantillon de 20");
 ylabel("Nombres de canettes");
 
 
 figure;
 boxplot(spirit_data);
-title("Consommation d alcool fort au monde d un echantillon de 20");
+title("Consommation d alcool fort d un echantillon de 20");
 ylabel("Nombres de shots");
 
 figure;
