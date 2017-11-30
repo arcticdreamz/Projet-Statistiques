@@ -18,7 +18,7 @@ KS_pure_100  = zeros(100,1);
 
 % On prend 100 echantillons de 20 pays au hasard
 for j = 1:100
-    index_echantillon = randsample(100,20,false);
+    index_echantillon = randsample(100,20,true);
     for i = 1:20
         echantillons(i,1:4,j) = data(index_echantillon(i),:);
     end
