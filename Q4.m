@@ -1,14 +1,19 @@
+function [rejetUlg, interventionOMS] = Q4()
+
 data = xlsread("Database.xlsx");
 beerBelgium = data(93,1);
 nbAboveBelgium = zeros(100,6);
 n = 50;
 echantillons = zeros(n,1,100,6);
-rejets = zeros(1,6);
+interventionOMS = 0;
+rejetUlg = 0;
 
-for tests = 1 : 50
 for j = 1:100
-    for k = 1:6
+    
+    rejetInstituts = 0;
 
+    for k = 1:6
+        
         
         index_echantillon = randsample(100,n,true);
         
@@ -31,15 +36,20 @@ for j = 1:100
         borne = proportion + (u*ecart_type);
        
         
-
         if propNbAboveBelgium(j,k) > borne 
-            rejets(k) = rejets(k) +1;
+            if k == 1
+                rejetUlg = rejetUlg + 1;
+            else
+                rejetInstituts = rejetInstituts +1;
+            end
         end
         
         
     end
+    % Si au moins 1 institut rejette l'hypothèse, l'OMS intervient
+    if rejetInstituts >= 1
+        interventionOMS = interventionOMS +1;
+    end
 end
 end
 
-rejets
-rejetUlg = rejets(1)

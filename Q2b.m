@@ -79,7 +79,7 @@ xlabel("Nombres de shots");
 figure
 histogram(mean_beer_100,0:10:400);
 title({"Histogramme de la repartition des moyennes de la ";"consommation de bieres sur 100 echantillons"});
-ylabel("Nombres de medianes");
+ylabel("Nombres de moyennes");
 xlabel("Nombres de canettes");
 figure
 histogram(mean_spirit_100,0:10:450);
